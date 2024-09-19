@@ -10,10 +10,6 @@ readme = "README.md"
 dependencies = [
     "typer>=0.12.5",
     "sh>=2.0.7",
-    # Utility
-    "utils",
-    # Core
-    "core",
 ]
 
 [tool.uv.sources]
@@ -30,6 +26,10 @@ dev-dependencies = [
     "pre-commit>=3.8.0",
     "ipykernel>=6.29.5",
     "pytest>=8.3.2",
+    # These are added as dev dependencies becuase they should be available
+    #  when developing the project.
+    "utils",
+    "core",
 ]
 package = false
 
