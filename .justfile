@@ -28,4 +28,4 @@ add_scripts:
 
 # Build dockerfile for DAG
 build target:
-  docker build -t dags/{{target}} --build-arg PACKAGE={{target}} .
+  docker build -t packages/{{target}} --build-arg PACKAGE={{target}} .
