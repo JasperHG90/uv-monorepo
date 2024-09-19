@@ -1,0 +1,15 @@
+[project]
+name = "utils"
+version = "0.0.0"
+description = "Utility functions"
+authors = [
+  {name="Jasper Ginn", email="jasperginn@gmail.com"}
+]
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

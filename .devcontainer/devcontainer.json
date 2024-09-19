@@ -1,0 +1,38 @@
+{
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": "."
+    },
+    "containerEnv": {
+      "HOME": "/home/vscode"
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-toolsai.jupyter",
+          "ms-python.vscode-pylance",
+          "redhat.vscode-yaml",
+          "mhutchie.git-graph",
+          "ms-azuretools.vscode-docker",
+          "njpwerner.autodocstring",
+          "pomdtr.excalidraw-editor",
+          "tamasfe.even-better-toml",
+          "kokakiwi.vscode-just",
+        ],
+        "settings": {
+          "python.pythonPath": "/home/vscode/workspace/.venv/bin/python",
+        }
+      }
+    },
+    "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && git config --global --add credential.useHttpPath true",
+    "runArgs": [
+      "--env-file",
+      ".devcontainer/.env"
+    ],
+    "workspaceFolder": "/home/vscode/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/workspace,type=bind",
+    "features": {
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+  }

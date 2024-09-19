@@ -1,0 +1,22 @@
+[project]
+name = "core"
+version = "0.0.0"
+description = "Core functionality"
+authors = [
+  {name="Jasper Ginn", email="jasperginn@gmail.com"}
+]
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+    "utils",
+]
+
+[project.scripts]
+core = "core.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv.sources]
+utils = { workspace = true }
