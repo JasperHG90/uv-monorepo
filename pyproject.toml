@@ -7,10 +7,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 readme = "README.md"
-dependencies = [
-    "typer>=0.12.5",
-    "sh>=2.0.7",
-]
+dependencies = []
 
 [tool.uv.sources]
 utils = { workspace = true }

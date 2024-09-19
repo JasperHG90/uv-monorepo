@@ -139,11 +139,15 @@ name = "core"
 version = "0.0.0"
 source = { editable = "src/core" }
 dependencies = [
+    { name = "typer" },
     { name = "utils" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "utils", editable = "shared/utils" }]
+requires-dist = [
+    { name = "typer", specifier = ">=0.12.5" },
+    { name = "utils", editable = "shared/utils" },
+]
 
 [[package]]
 name = "debugpy"
@@ -354,33 +358,25 @@ wheels = [
 name = "monorepo"
 version = "0.0.0"
 source = { virtual = "." }
-dependencies = [
-    { name = "core" },
-    { name = "sh" },
-    { name = "typer" },
-    { name = "utils" },
-]
 
 [package.dev-dependencies]
 dev = [
+    { name = "core" },
     { name = "ipykernel" },
     { name = "pre-commit" },
     { name = "pytest" },
+    { name = "utils" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "core", editable = "src/core" },
-    { name = "sh", specifier = ">=2.0.7" },
-    { name = "typer", specifier = ">=0.12.5" },
-    { name = "utils", editable = "shared/utils" },
-]
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "core", editable = "src/core" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "pre-commit", specifier = ">=3.8.0" },
     { name = "pytest", specifier = ">=8.3.2" },
+    { name = "utils", editable = "shared/utils" },
 ]
 
 [[package]]
@@ -702,15 +698,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz", hash = "sha256:8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a", size = 222080 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b0/11/dadb85e2bd6b1f1ae56669c3e1f0410797f9605d752d68fb47b77f525b31/rich-13.8.1-py3-none-any.whl", hash = "sha256:1760a3c0848469b97b558fc61c85233e3dafb69c7a071b4d60c38099d3cd4c06", size = 241608 },
-]
-
-[[package]]
-name = "sh"
-version = "2.0.7"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/14/7a/5148402146d360a6d15922814a3b065b52be3a5fe878a8834d3ce4e7d33f/sh-2.0.7.tar.gz", hash = "sha256:029d45198902bfb967391eccfd13a88d92f7cebd200411e93f99ebacc6afbb35", size = 345477 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/c2/79f9dea6fc544c0eb79ed5018a38860c52d597c4be66c2cf2029bea5b3fd/sh-2.0.7-py3-none-any.whl", hash = "sha256:2f2f79a65abd00696cf2e9ad26508cf8abb6dba5745f40255f1c0ded2876926d", size = 38103 },
 ]
 
 [[package]]
