@@ -3,7 +3,7 @@
 repos:
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: check-ast
       - id: check-docstring-first
@@ -14,38 +14,24 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
 
-  - repo: https://github.com/econchick/interrogate
-    rev: "1.7.0"
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.5.7
     hooks:
-      - id: interrogate
-        args: [-vv, --fail-under=0, ./shared, ./src]
-
-  - repo: https://github.com/ambv/black
-    rev: 24.1.1
-    hooks:
-      - id: black
+      - id: uv-lock
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.2.1
+    # Ruff version.
+    rev: v0.9.7
     hooks:
+      # Run the linter.
       - id: ruff
+        types_or: [ python, pyi ]
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+        types_or: [ python, pyi ]
 
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.394
     hooks:
-      - id: isort
-        args: ["--profile", "black", "--filter-files"]
-
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      - id: mypy
-        additional_dependencies: [
-          'types-PyYAML',
-          'types-decorator',
-          'types-requests',
-          'types-pytz',
-          'types-cachetools',
-          'types-redis'
-        ]
-exclude: 'static/'
+      - id: pyright

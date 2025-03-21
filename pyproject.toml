@@ -30,44 +30,26 @@ dev-dependencies = [
 ]
 package = false
 
-[tool.black]
-line-length = 88
-exclude = '''
-^/(
-  (
-      \.eggs         # exclude a few common directories in the
-    | \.git          # root of the project
-    | \.hg
-    | \.mypy_cache
-    | \.venv
-    | _build
-    | build
-    | dist
-    | .notebooks
-    | .nox
-  )
-)
-'''
-
-[tool.isort]
-profile = "black"
-extend_skip = [".tmp", ".venv"]
-
-[tool.mypy]
-exclude = "^.tmp/"
-ignore_missing_imports = true
-
-[tool.bandit]
-skips = ['B101']
-
 [tool.ruff]
 lint.ignore = ["E501"]
 extend-exclude = [
   "__pycache__",
-  "docs",
-  "site",
-  ".tmp"
+  ".eggs",
+  ".git",
+  ".venv",
+  "build",
+  "dist",
+  "notebooks",
+  ".cache"
 ]
+line-length = 100
+
+[tool.pyright]
+exclude = [".venv", ".github", "docs", "tests", ".devcontainer"]
+include = ["src", "scripts"]
+pythonVersion = "3.12"
+venvPath = "."
+venv = ".venv"
 
 [tool.pytest.ini_options]
 cache_dir = "/home/vscode/workspace/.cache/pytest"
